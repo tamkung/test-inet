@@ -1,54 +1,79 @@
 import React from "react";
 import Logo from "../assets/img/logo.png";
 import Img_btn from "../assets/img/img-btn.jpg";
+import { IoMdMail, IoMdLock } from "react-icons/io";
+import { BsEyeSlashFill, BsEyeFill } from "react-icons/bs";
+
 import "../css/login.css";
 
 function Login() {
+  const [inputType, setInputType] = React.useState("password");
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 ">
       <div className="mr-auto ml-auto mb-10 mt-20">
         <img src={Logo} alt="LOGO" />
       </div>
-      <div className="ml-auto mr-auto  w-[28rem] h-[29rem] bg-white drop-shadow-lg">
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <h1 className="text-center text-2xl text-blue-950">เข้าสู่ระบบ</h1>
+      <div className="ml-auto mr-auto  w-[25rem] h-[30rem] bg-white drop-shadow-lg">
+        <div className="mt-9 sm:mx-auto sm:w-full sm:max-w-sm px-5">
+          <h1 className="text-center text-2xl text-blue-950 font-semibold">
+            เข้าสู่ระบบ
+          </h1>
           <form className="space-y-6">
             <div>
-              <div className="mt-2">
+              <div className="mt-9">
+                <IoMdMail
+                  className="absolute mt-2 ml-4 "
+                  size={25}
+                  color="#525252"
+                />
                 <input
                   id="email"
                   name="email"
-                  type="email"
+                  type="text"
+                  placeholder="XXXXXXXX"
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="pl-14 h-10 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400"
                 />
               </div>
             </div>
 
             <div>
-              <div className="flex items-center justify-between">
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Password
-                </label>
-              </div>
-              <div className="mt-2">
+              <div className="mt-2 flex">
+                <IoMdLock
+                  className="absolute mt-2 ml-[15px] "
+                  size={25}
+                  color="#525252"
+                />
                 <input
                   id="password"
                   name="password"
-                  type="password"
+                  type={inputType}
+                  placeholder="**********"
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="pl-14 h-10 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400"
                 />
+                <div className="absolute right-10 mt-[10px]">
+                  {inputType === "password" ? (
+                    <BsEyeSlashFill
+                      size={20}
+                      color="#525252"
+                      onClick={() => setInputType("text")}
+                    />
+                  ) : (
+                    <BsEyeFill
+                      size={20}
+                      color="#525252"
+                      onClick={() => setInputType("password")}
+                    />
+                  )}
+                </div>
               </div>
             </div>
 
             <div className="mt-10">
               <button
                 type="submit"
-                className=" flex w-full justify-center rounded-md bg-[#539b33] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="mt-14 flex w-full justify-center rounded-md bg-[#539b33] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm "
               >
                 เข้าสู่ระบบ
               </button>
@@ -64,13 +89,11 @@ function Login() {
               คลิกที่นี่
             </a>
           </p>
-          
+
           <div className="flex mt-4">
-            <hr className="w-full mt-2"/>
-            <p className="mr-3 ml-3 text-[12px] text-gray-400">
-                หรือ
-            </p>
-            <hr className="w-full mt-2"/>
+            <hr className="w-full mt-2" />
+            <p className="mr-3 ml-3 text-[12px] text-gray-400">หรือ</p>
+            <hr className="w-full mt-2" />
           </div>
 
           <div className="mt-4 drop-shadow-sm ">
@@ -79,13 +102,20 @@ function Login() {
               className="text-sm flex h-12 w-full justify-center border-solid border-2 rounded-md bg-[#ffffff] px-3 py-1.5 leading-6 "
             >
               <div className="flex justify-center text-center content-center">
-                <img src={Img_btn} alt="google" className="w-10 absolute top-1 left-5" />
+                <img
+                  src={Img_btn}
+                  alt="google"
+                  className="w-10 absolute top-1 left-5"
+                />
                 <p className="mt-1">สร้างบัญชีผู้ใช้งานโดย OPENLANDSCAPE</p>
               </div>
             </button>
           </div>
         </div>
       </div>
+      <p className="mt-3 text-center text-sm leading-6 text-blue-900 hover:text-indigo-500">
+        <a href="#">ติดต่อเจ้าหน้าที่</a>
+      </p>
     </div>
   );
 }
