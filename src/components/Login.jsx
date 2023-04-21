@@ -3,8 +3,7 @@ import Logo from "../assets/img/logo.png";
 import Img_btn from "../assets/img/img-btn.jpg";
 import { IoMdMail, IoMdLock } from "react-icons/io";
 import { BsEyeSlashFill, BsEyeFill } from "react-icons/bs";
-
-import "../css/login.css";
+import { NavLink } from "react-router-dom";
 
 function Login() {
   const [inputType, setInputType] = React.useState("password");
@@ -29,7 +28,7 @@ function Login() {
                 <input
                   id="email"
                   name="email"
-                  type="text"
+                  type="email"
                   placeholder="XXXXXXXX"
                   required
                   className="pl-14 h-10 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400"
@@ -40,7 +39,7 @@ function Login() {
             <div>
               <div className="mt-2 flex">
                 <IoMdLock
-                  className="absolute mt-2 ml-[15px] "
+                  className="absolute mt-2 ml-[16px] "
                   size={25}
                   color="#525252"
                 />
@@ -71,12 +70,12 @@ function Login() {
             </div>
 
             <div className="mt-10">
-              <button
-                type="submit"
+              <NavLink
                 className="mt-14 flex w-full justify-center rounded-md bg-[#539b33] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm "
+                to="/todo"
               >
                 เข้าสู่ระบบ
-              </button>
+              </NavLink>
             </div>
           </form>
 
@@ -104,10 +103,10 @@ function Login() {
               <div className="flex justify-center text-center content-center">
                 <img
                   src={Img_btn}
-                  alt="google"
+                  alt="OpenLandscape"
                   className="w-10 absolute top-1 left-5"
                 />
-                <p className="mt-1">สร้างบัญชีผู้ใช้งานโดย OPENLANDSCAPE</p>
+                <p className="mt-1 absolute right-5">สร้างบัญชีผู้ใช้งานโดย OPENLANDSCAPE</p>
               </div>
             </button>
           </div>
